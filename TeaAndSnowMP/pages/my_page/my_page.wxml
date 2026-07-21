@@ -1,0 +1,50 @@
+<!--pages/my_page/my_page.wxml-->
+<navigation-bar title="我的信息" back="{{true}}" style="flex: 0 0 auto;"></navigation-bar>
+<view class="myScrollView">
+  <view class="profileCard">
+    <!-- 头像 -->
+    <button class="avatarButton" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image class="avatarImg" src="{{tempAvatarUrl || myInit.avatar_url}}" mode="aspectFill"></image>
+    </button>
+    <text class="avatarTip">点击头像更换</text>
+
+    <!-- 昵称 -->
+    <view class="fieldView">
+      <text class="fieldLabel">昵称</text>
+      <input class="nicknameInput" type="nickname" placeholder="请输入昵称" value="{{newUsername}}" bindinput="onNicknameInput" bindblur="onNicknameInput" />
+    </view>
+
+    <!-- 会员等级 -->
+    <view class="levelView">
+      <text class="levelBadge">Lv.{{myInit.member_level}}</text>
+      <text class="levelName">{{levelName}}</text>
+    </view>
+
+    <!-- 其他信息 -->
+    <view class="infoView">
+      <view class="infoItem">
+        <text class="infoLabel">初次见面</text>
+        <text class="infoValue">{{myInit.created_at}}</text>
+      </view>
+      <view class="infoItem">
+        <text class="infoLabel">相伴天数</text>
+        <text class="infoValue">{{joinDays}} 天</text>
+      </view>
+    </view>
+
+    <!-- 装饰文案 -->
+    <view class="mottoView">
+      <text class="mottoText">好茶相伴，日日是好日。</text>
+    </view>
+  </view>
+
+  <!-- 底部留白 -->
+  <image class="myViewBack" src="{{baseStaticURL+'/static/icon/intro/string_back.png'}}"></image>
+</view>
+
+<!-- 保存按钮 -->
+<view class="saveBar">
+  <button class="saveButton {{hasChanged?'saveButtonActive':''}}" bind:tap="saveProfile" disabled="{{isSubmitting || !hasChanged}}">
+    {{isSubmitting?'保存中...':'保存修改'}}
+  </button>
+</view>

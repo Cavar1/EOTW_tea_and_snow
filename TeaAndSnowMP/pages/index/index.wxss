@@ -1,0 +1,365 @@
+/**index.wxss**/
+page {
+  display: flex;
+  flex-direction: column;
+}
+
+.indexSwiperView{
+  width: 100vw;
+  flex: auto;
+}
+
+/* ---------- 首页 ---------- */
+.bannerListView{
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.bannerView{
+  width: 100vw;
+  height: 1000rpx;
+}
+
+.bannerImg{
+  width: 100vw;
+  height: 1000rpx;
+}
+
+.defaultBannerView{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  vertical-align: bottom;
+}
+
+.defaultBannerView .emptyBox{
+  width: 100vw;
+  flex: 3;
+}
+
+.defaultBannerView .title{
+  width: 100vw;
+  flex: 1;
+  font-size: 100rpx;
+  color: gray;
+}
+.defaultBannerView .subTitle{
+  width: 100vw;
+  flex: 1;
+  font-size: 30rpx;
+  color: gray;
+}
+
+.goToMenuButton{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  width: 96vw !important;
+  height: 200rpx;
+  background-color: #f2ffe2;
+}
+.goToMenuButtonTitle{
+  flex: 5;
+  font-size: 60rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.goToMenuButtonIcon{
+  flex: 1;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+/* ---------- 订单页 ---------- */
+.orderListView{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid black;
+}
+.orderListView open-container{
+  margin: 20rpx 20rpx;
+}
+/* 订单卡片 */
+.orderView{
+  width: auto;
+  height: 350rpx;
+  padding: 20rpx 20rpx 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #faffdd;
+  border:1px solid rgb(50, 50, 50);
+}
+/* 上栏，状态和订单时间 */
+.orderInfoView{
+  width: 670rpx;
+  height: 95rpx;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+.orderTitle{
+  font-size: 70rpx;
+  font-weight: bold;
+  color: #242424;
+}
+.orderSubTitle{
+  padding-top: 30rpx;
+  font-size: 40rpx;
+  color: #3d3d3d;
+}
+.orderCreateTimeText{
+  flex: auto;
+  text-align: right;
+  font-size: 30rpx;
+  color: #454545;
+}
+/* 中栏，物品栏 */
+.orderItemListView{
+  width: 670rpx;
+  height: 150rpx;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow-x: hidden;
+}
+.orderItemView{
+  flex: 0 0 auto;
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 30rpx;
+  position: relative;
+}
+.orderItemImg{
+  width: 150rpx;
+  height: 150rpx;
+}
+.orderItemText{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 20rpx;
+  color: white;
+  background-color: #00000098;
+}
+.orderItemListMask{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60rpx;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #faffdd00 0%,
+    #faffdd88 30%,
+    #faffddff 100%
+  );
+}
+/* 下栏，价格与按钮 */
+.orderBottomView{
+  width: 670rpx;
+  height: 95rpx;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  align-items: center;
+}
+.orderPrice{
+  flex: auto;
+  font-size: 40rpx;
+}
+.orderButton{
+  width: 120rpx !important;
+  height: 60rpx;
+  padding: 0;
+  font-size: 25rpx;
+  background-color: #5ba412;
+  color: white;
+  border: 1px solid #5e5e5e;
+  border-radius: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+.orderListEmptyBox{
+  width: max-content;
+  height: 170rpx;
+}
+
+/* ---------- 我的页 ---------- */
+.myScrollView{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.myCardContainer{
+  margin: 30rpx;
+}
+/* 资料卡片 */
+.profileCard {
+  padding: 40rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  background-color: #faffdd;
+  border: 1px solid rgb(53, 53, 53);
+}
+
+/* 头像 */
+.avatarButton {
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.avatarButton::after {
+  border: none;
+}
+
+.avatarImg {
+  width: 240rpx;
+  height: 240rpx;
+  background-color: white;
+}
+
+.avatarTip {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #454545;
+}
+
+/* 昵称 */
+.fieldView {
+  margin-top: 40rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid rgb(121, 121, 121);
+  padding-bottom: 20rpx;
+}
+
+.fieldLabel {
+  width: 120rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #242424;
+}
+
+.nicknameInput {
+  flex: 1;
+  font-size: 34rpx;
+  color: #242424;
+}
+
+/* 会员等级 */
+.levelView {
+  margin-top: 40rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.levelBadge {
+  padding: 8rpx 20rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(55, 171, 23);
+  border: 1px solid black;
+}
+
+.levelName {
+  margin-left: 20rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #242424;
+}
+
+/* 信息列表 */
+.infoView {
+  margin-top: 40rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoLabel {
+  font-size: 26rpx;
+  color: #454545;
+}
+
+.infoValue {
+  margin-top: 10rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #242424;
+}
+
+/* 装饰文案 */
+.mottoView {
+  margin-top: 50rpx;
+  padding: 24rpx 30rpx;
+  background-color: rgb(248, 254, 126);
+  border: 1px solid black;
+}
+
+.mottoText {
+  font-size: 30rpx;
+  color: #242424;
+}
+
+.myViewBack{
+  position: absolute;
+  bottom: 150rpx;
+  right: 0;
+	z-index: 0;
+	width: 400rpx;
+	height: 400rpx;
+	visibility: 100%;
+}
+
+/* ---------- Tab Bar ---------- */
+.customTabBar{
+  width: 100vw;
+  height: 120rpx;
+  border-top: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 30rpx;
+}
+.tabItem{
+  width: 160rpx;
+  height: 60rpx;
+  padding-top: 10rpx;
+  font-size: 40rpx;
+  font-weight: bolder;
+  text-align: center;
+  color: black;
+  background-color: white;
+  border: none;
+}
+.selectedTabItem{
+  color: white;
+  background-color: rgb(55, 171, 23);
+  border: 1px solid black;
+}

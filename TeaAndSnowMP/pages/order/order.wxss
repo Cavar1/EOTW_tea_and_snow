@@ -1,0 +1,132 @@
+/* pages/order/order.wxss */
+page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- 茶单列表 ---------- */
+.container{
+	margin: 0;
+	width: 100%;
+	height: max-content;
+	padding: 0;
+	flex: 1;
+	border-top: 1px solid black;
+}
+.order{
+	margin: 30rpx;
+	padding: 10rpx;
+	display: flex;
+	flex-direction: column;
+  background-color: #faffdd;
+	border: 1px solid rgb(53, 53, 53);
+}
+/* 单头 */
+.title{
+	margin-top: 40rpx;
+	font-size: 100rpx;
+	font-weight: bold;
+}
+.subTitle{
+	margin-top: 30rpx;
+	margin-bottom: 30rpx;
+	font-size: 40rpx;
+}
+/* 小标题 */
+.orderHead{
+	margin-top: 30rpx;
+	margin-bottom: 20rpx;
+	font-size: 50rpx;
+	font-weight: bold;
+}
+/* 茶点 */
+.orderItemView{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: relative;
+	margin: 20rpx 0;
+	width: 650rpx;
+	height: 160rpx;
+}
+.orderItemView image{
+	flex: 0 0 auto;
+	width: 160rpx;
+	height: 160rpx;
+}
+.orderItemText{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	margin-left: 5rpx;
+	margin-right: 10rpx;
+}
+.orderItemName{
+	flex: 2;
+	vertical-align: middle;
+	font-size: 42rpx;
+	font-weight: bold;
+	margin-top: 8rpx;
+	margin-bottom: 5rpx;
+}
+.orderItemCount{
+	flex: 1;
+	vertical-align: middle;
+	font-size: 30rpx;
+	color: gray;
+}
+.orderItemPrice{
+	flex: 0 0 auto;
+	position: relative;
+	right: 20rpx;
+	top: 50rpx;
+	font-size: 40rpx;
+	font-weight: bold;
+	color: #ff6666;
+}
+.orderPriceView{
+	margin-bottom: 20rpx;
+}
+.orderPriceText{
+	font-size: 40rpx;
+	font-weight: bold;
+}
+.orderPrice{
+	color: #ff6666;
+}
+/* 详细信息 */
+.orderDetailText{
+	margin-bottom: 10rpx;
+	font-size: 30rpx;
+	color: #454545;
+}
+
+/* ---------- 按钮栏 ---------- */
+.btnBar{
+	margin: 0 0 50rpx;
+	width: 100%;
+	height: 100rpx;
+	padding: 20rpx;
+	box-sizing: border-box;
+	border-top: 1px solid black;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	vertical-align: middle;
+	position: relative;
+}
+.btn{
+	width: 140rpx !important;
+	height: 60rpx;
+	margin: 0;
+	margin-left: auto;
+	padding: 0;
+	font-size: 30rpx;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #a9ff89;
+	color: black;
+	border-radius: 0;
+	border: 1px solid #454545;
+}

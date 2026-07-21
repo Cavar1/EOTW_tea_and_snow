@@ -1,0 +1,35 @@
+<!--pages/order/order.wxml-->
+<navigation-bar title="茶单" back="{{true}}"></navigation-bar>
+<scroll-view class="container" scroll-y>
+	<view class="order" wx:if="{{order}}">
+		<block>
+			<text class="title" wx:if="{{order.status=='paid'}}"># {{order.id}}</text>
+			<text class="title" wx:elif="{{order.status=='pending'}}">待支付</text>
+		</block>
+		<block>
+			<text class="subTitle" wx:if="{{order.status=='paid'}}">“来杯好茶摇一摇，摇一摇。”</text>
+			<text class="subTitle" wx:elif="{{order.status=='pending'}}">支付后即可开始制茶...</text>
+		</block>
+		<text class="orderHead">茶点</text>
+		<block wx:for="{{order.order_items}}" wx:for-item="item">
+			<view class="orderItemView">
+				<image class="orderItemImg" src="{{item.small_image_url?(baseStaticURL+item.small_image_url):(baseStaticURL+'/static/item/tiny/def_small_item.png')}}"></image>
+				<view class="orderItemText">
+					<text class="orderItemName">{{item.tea_name}}</text>
+					<text class="orderItemCount">x{{item.quantity}}</text>
+				</view>
+				<text class="orderItemPrice">¥{{item.unit_price}}</text>
+			</view>
+		</block>
+		<view class="orderPriceView">
+			<text class="orderPriceText">总共<text class="orderPriceText orderPrice">¥{{order.total_amount}}</text></text>
+		</view>
+		<text class="orderHead">茶单详情</text>
+		<text class="orderDetailText">茶单号：{{order.order_no}}</text>
+		<text class="orderDetailText">下单时间：{{order.created_at}}</text>
+		<text class="orderDetailText">状态：{{order.status=="pending"?"待支付":"已完成"}}</text>
+	</view>
+</scroll-view>
+<view class="btnBar" wx:if="{{order.status=='pending'}}">
+	<button class="btn" bind:tap="goToPay">去支付</button>
+</view>

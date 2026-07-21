@@ -1,0 +1,38 @@
+/* pages/item_intro/item_intro.wxss */
+page {
+  display: flex;
+  flex-direction: column;
+}
+.itemScrollView{
+  flex: 1;
+	display: flex;
+  flex-direction: column;
+	position: relative;
+}
+.largeImg{
+	z-index: 1;
+	width: 750rpx;
+	height: 562.5rpx;
+}
+.itemName{
+	z-index: 1;
+	margin: 30rpx 20rpx;
+	font-size: 70rpx;
+	font-weight: bold;
+	color: black;
+}
+.itemIntro{
+	z-index: 1;
+	margin: 30rpx 20rpx;
+	font-size: 40rpx;
+	color: black;
+}
+.backgroundText{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 0;
+	width: 400rpx;
+	height: 400rpx;
+	visibility: 100%;
+}

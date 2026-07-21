@@ -1,0 +1,89 @@
+<navigation-bar title="点单" back="{{true}}"></navigation-bar>
+<view class="menuContainer">
+  <!-- 茶点组列表 -->
+  <scroll-view class="itemGroupListView" scroll-y="true">
+    <block wx:for="{{itemGroupList}}" wx:for-item="itemGroup">
+      <view class="ItemGroupView" bind:tap="onGroupTap" data-index="{{index}}">
+        <text>{{itemGroup.name}}</text>
+      </view>
+    </block>
+    <view class="emptyScroll"></view>
+  </scroll-view>
+  <!-- 茶点列表 -->
+  <scroll-view class="itemListView" scroll-y="true" scroll-into-view="{{scrollIntoView}}" scroll-with-animation="true">
+    <block wx:for="{{itemGroupList}}" wx:for-item="itemGroup">
+      <!-- 茶点组栏 -->
+      <view class="ItemGroupInfoView" id="group{{index}}">
+        <text class="ItemGroupInfoTitle">{{itemGroup.name}}</text>
+        <text class="ItemGroupInfoIntro">{{itemGroup.description}}</text>
+      </view>
+      <!-- 茶点栏 -->
+      <block wx:for="{{itemGroup.tea_items}}" wx:for-item="item">
+        <open-container class="itemViewContainer">
+          <view class="itemView" bind:tap="onClickItemInfo" data-id="{{item.id}}">
+            <image src="{{item.small_image_url?(baseStaticURL+item.small_image_url):(baseStaticURL+'/static/item/tiny/def_small_item.png')}}" />
+            <view class="itemTextView">
+              <text class="itemNameText">{{item.name}}</text>
+              <text class="itemIntroText">{{item.short_desc}}</text>
+              <view class="itemPriceAndBtnView">
+                <text class="itemPriceText">¥{{item.base_price}}</text>
+                <view class="itemButton" catch:tap="addToCart" data-id="{{item.id}}">来一杯</view>
+              </view>
+            </view>
+          </view>
+        </open-container>
+      </block>
+    </block>
+    <view class="emptyScroll"></view>
+  </scroll-view>
+</view>
+<!-- 购物车bar -->
+<view class="cartBarView" bind:tap="onClickCartBar">
+  <image class="cartIcon" src="{{baseStaticURL+'/static/icon/cart/cart.png'}}"></image>
+  <view class="cartCount" wx:if="{{cartItemCount!=0}}">{{cartItemCount}}</view>
+  <text class="cartPrice">¥{{totalPrice}}</text>
+  <button class="cartCheckOutBtn" catch:tap="goToOrder">下单</button>
+</view>
+<!-- 购物车窗口 -->
+<page-container show="{{isShowCart}}" overlay="{{true}}" position="bottom" round="{{false}}" close-on-slide-down="{{true}}" overlay-style="" custom-style="
+    display:flex;
+	  flex-direction: column;
+    margin:0 3vw;
+    padding-bottom:50rpx;
+    width:94vw;
+    height:50vh;" bind:beforeleave="{{isShowCart?'onClickCartBar':''}}">
+  <text class="cartTitle">茶单</text>
+  <!-- 购物车商品栏 -->
+  <scroll-view class="cartItemListView" scroll-y>
+    <block wx:for="{{cartItemList}}">
+      <view class="itemView cartItemView">
+        <!-- 物品小图 -->
+        <image src="{{
+            item.tea_item.small_image_url
+            ?(baseStaticURL+item.tea_item.small_image_url)
+            :(baseStaticURL+'/static/item/tiny/def_small_item.png')
+          }}" />
+        <view class="itemTextView">
+          <!-- 物品信息 -->
+          <text class="itemNameText cartItemNameText">{{item.tea_item.name}}</text>
+          <view class="itemPriceAndBtnView">
+            <text class="itemPriceText">¥{{item.subtotal}}</text>
+            <!-- 物品调整按钮 -->
+            <view class="itemButton cartItemButton">
+              <view class="cartItemChangeBtn" bind:tap="cutCart" data-id="{{item.id}}" data-qtt="{{item.quantity}}">-</view>
+              <view class="cartItemCount">{{item.quantity}}</view>
+              <view class="cartItemChangeBtn" bind:tap="addMoreToCart" data-id="{{item.id}}" data-qtt="{{item.quantity}}">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <!-- 购物车bar -->
+  <view class="cartBarView innerCartBarView" bind:tap="onClickCartBar">
+    <image class="cartIcon" src="{{baseStaticURL+'/static/icon/cart/cart.png'}}"></image>
+    <view class="cartCount" wx:if="{{cartItemCount!=0}}">{{cartItemCount}}</view>
+    <text class="cartPrice">¥{{totalPrice}}</text>
+    <button class="cartCheckOutBtn" catch:tap="goToOrder">下单</button>
+  </view>
+</page-container>

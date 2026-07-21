@@ -1,0 +1,8 @@
+<!--pages/item_intro/item_intro.wxml-->
+<navigation-bar title="详情" back="{{true}}"></navigation-bar>
+<scroll-view class="itemScrollView" scroll-y>
+	<image class="largeImg" src="{{item.large_image_url?baseStaticURL+item.large_image_url:baseStaticURL+'/static/item/large/default_large_item.png'}}"></image>
+	<text class="itemName">{{item.name}}</text>
+	<text class="itemIntro">{{item.full_desc}}</text>
+	<image class="backgroundText" src="{{baseStaticURL+'/static/icon/intro/string_back.png'}}"></image>
+</scroll-view>

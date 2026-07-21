@@ -1,0 +1,123 @@
+<!--index.wxml-->
+<swiper class="indexSwiperView" current="{{tabId}}" indicator-dots="{{false}}" autoplay="{{false}}" bindchange="onSwiperChange">
+  <!-- ----------首页---------- -->
+  <swiper-item>
+    <scroll-view class="bannerListView" scroll-y>
+      <!-- 横幅存在时显示横幅 -->
+      <block wx:if="{{bannerList}}">
+        <swiper class="bannerView" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}" duration="{{500}}">
+          <block wx:for="{{bannerList}}">
+            <swiper-item>
+              <image class="bannerImg" src="{{baseStaticURL+item.image_url}}" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </block>
+      <!-- 横幅不存在时显示默认横幅 -->
+      <block wx:else>
+        <view class="bannerView defaultBannerView">
+          <view class="emptyBox"></view>
+          <text class="title">奈茶的雪</text>
+          <text class="subTitle">好喝的茶和软面包</text>
+        </view>
+      </block>
+
+      <!-- 跳转到甜品菜单 -->
+      <button class="goToMenuButton" bindtap="goToMenu">
+        <text class="goToMenuButtonTitle">点杯茶</text>
+        <image class="goToMenuButtonIcon" src="{{baseStaticURL+'/static/icon/index/go_to_order.png'}}" />
+      </button>
+    </scroll-view>
+  </swiper-item>
+  <!-- ----------茶单---------- -->
+  <swiper-item>
+    <navigation-bar title="茶单" back="{{false}}"></navigation-bar>
+    <scroll-view class="orderListView" scroll-y>
+      <!-- 茶单卡片 -->
+      <block wx:for="{{orderList}}" wx:for-item="order">
+        <open-container>
+          <view class="orderView" bind:tap="goToOrder" data-orderno="{{order.order_no}}">
+            <!-- 上栏，状态和茶单时间 -->
+            <view class="orderInfoView">
+              <text class="orderTitle">{{order.status=='pending'?"待支付":'#'+order.id}}</text>
+              <text class="orderSubTitle">{{order.status=='paid'?"已完成":""}}</text>
+              <text class="orderCreateTimeText">{{order.created_at}}</text>
+            </view>
+            <!-- 中栏，物品栏 -->
+            <view class="orderItemListView">
+              <block wx:for="{{order.order_items}}" wx:for-item="item">
+                <view class="orderItemView">
+                  <image class="orderItemImg" src="{{item.small_image_url?(baseStaticURL+item.small_image_url):(baseStaticURL+'/static/item/tiny/def_small_item.png')}}"></image>
+                  <text class="orderItemText">{{item.tea_name}}{{item.quantity!=1?' x'+item.quantity:''}}</text>
+                </view>
+              </block>
+              <view class="orderItemListMask"></view>
+            </view>
+            <!-- 下栏，价格与按钮 -->
+            <view class="orderBottomView">
+              <text class="orderPrice">¥{{order.total_amount}}</text>
+              <button class="orderButton">查看茶单</button>
+            </view>
+          </view>
+        </open-container>
+      </block>
+      <view class="orderListEmptyBox"></view>
+    </scroll-view>
+  </swiper-item>
+  <!-- ----------我的---------- -->
+  <swiper-item>
+    <navigation-bar title="我的" back="{{false}}"></navigation-bar>
+    <view class="myScrollView">
+      <open-container class="myCardContainer">
+        <view class="profileCard" bind:tap="onClickMyCard">
+          <!-- 头像 -->
+          <button class="avatarButton">
+            <image class="avatarImg" src="{{tempAvatarUrl || myInit.avatar_url}}" mode="aspectFill"></image>
+          </button>
+          <text class="avatarTip"></text>
+
+          <!-- 昵称 -->
+          <view class="fieldView">
+            <text class="fieldLabel">昵称</text>
+            <text class="nicknameInput">{{myInit.username}}</text>
+          </view>
+
+          <!-- 会员等级 -->
+          <view class="levelView">
+            <text class="levelBadge">Lv.{{myInit.member_level}}</text>
+            <text class="levelName">{{levelName}}</text>
+          </view>
+
+          <!-- 其他信息 -->
+          <view class="infoView">
+            <view class="infoItem">
+              <text class="infoLabel">初次见面</text>
+              <text class="infoValue">{{myInit.created_at}}</text>
+            </view>
+            <view class="infoItem">
+              <text class="infoLabel">相伴天数</text>
+              <text class="infoValue">{{joinDays}} 天</text>
+            </view>
+          </view>
+
+          <!-- 装饰文案 -->
+          <view class="mottoView">
+            <text class="mottoText">好茶相伴，日日是好日。</text>
+          </view>
+        </view>
+      </open-container>
+      <image class="myViewBack" src="{{baseStaticURL+'/static/icon/intro/string_back.png'}}"></image>
+    </view>
+  </swiper-item>
+</swiper>
+<!-- ----------Tab Bar---------- -->
+<view class="customTabBar">
+  <block wx:for="{{indexTabList}}" wx:for-item="item">
+    <view class="tabItem selectedTabItem" wx:if="{{item.id==tabId}}">
+      {{item.name}}
+    </view>
+    <view class="tabItem" wx:if="{{item.id!=tabId}}" bind:tap="onClickTab" data-id="{{item.id}}">
+      {{item.name}}
+    </view>
+  </block>
+</view>

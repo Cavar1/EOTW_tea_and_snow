@@ -1,0 +1,211 @@
+page{
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+/* 菜单容器 */
+.menuContainer{
+	display: flex;
+	flex-direction: row;
+	flex: 1;
+	width: 100%;
+	height: 100%;
+	border-top: 1px solid rgb(121, 121, 121);
+}
+/* 茶点组栏 */
+.itemGroupListView{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	border-right: 1px solid rgb(121, 121, 121);
+}
+.ItemGroupView{
+	margin: 0;
+	padding: 50rpx 30rpx;
+	border-bottom: 1px solid rgb(121, 121, 121);
+}
+
+/* 茶点列表 */
+.itemListView{
+	display: flex;
+	flex-direction: column;
+	flex: 3;
+}
+/* 茶点组栏 */
+.ItemGroupInfoView{
+	width: 100%;
+	margin-top: 60rpx;
+	margin-left: 10rpx;
+	margin-bottom: 30px;
+}
+.ItemGroupInfoTitle{
+	font-size: 60rpx;
+	font-weight: bold;
+	margin-bottom: 15rpx;
+}
+.ItemGroupInfoIntro{
+	font-size: 30rpx;
+	color: gray;
+}
+/* 茶点栏 */
+.itemViewContainer{
+	margin: 20rpx;
+}
+.itemView{
+	display: flex;
+	flex-direction: row;
+	width: auto;
+	height: 220rpx;
+	border: 1px solid rgb(121, 121, 121);
+}
+.itemView image{
+	width: 220rpx;
+	height: 220rpx;
+}
+.itemTextView{
+	flex: auto;
+	display: flex;
+	flex-direction: column;
+	margin-left: 5rpx;
+	margin-right: 10rpx;
+	height: 100%;
+}
+.itemNameText{
+	font-size: 42rpx;
+	font-weight: bold;
+	margin-top: 8rpx;
+	margin-bottom: 5rpx;
+}
+.itemIntroText{
+	flex: auto;
+	font-size: 30rpx;
+	color: gray;
+}
+.itemPriceAndBtnView{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8rpx;
+}
+.itemPriceText{
+	font-size: 42rpx;
+	color: rgb(214, 73, 73);
+}
+.itemButton{
+	width: 100rpx;
+	height: 42rpx;
+	font-size: 30rpx;
+	text-align: center;
+	color: white;
+	background-color: rgb(63, 172, 30);
+}
+
+/* 为购物车栏留空底 */
+.emptyScroll{
+	width: 100%;
+	height: 160rpx;
+}
+
+/* 购物车栏 */
+.cartBarView{
+	position: absolute;
+	left: 0;
+	bottom: 100rpx;
+	z-index: 2;
+	margin: 50rpx 3vw;
+	width: 94vw;
+	height: 100rpx;
+	border: 1px solid black;
+	background-color: rgb(252, 251, 247);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.cartIcon{
+	width: 100rpx;
+	height: 100rpx;
+	position: relative;
+}
+.cartCount{
+	position: absolute;
+	top: 8rpx;
+	left: 67rpx;
+	width: 30rpx;
+	height: 30rpx;
+	font-size: 18rpx;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	background-color: rgb(214, 73, 73);
+	border-radius: 15rpx;
+}
+.cartPrice{
+	font-size: 40rpx;
+	font-weight: bolder;
+}
+.cartCheckOutBtn{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 160rpx !important;
+	height: 100rpx;
+	margin: 0;
+	padding: 0;
+	border-left: 1px solid black;
+	background-color: rgb(252, 251, 247);
+}
+
+/* 购物车窗口 */
+.innerCartBarView{
+	position: relative;
+	left: 0;
+	bottom: 0;
+	margin: 0 15rpx;
+	width: auto;
+}
+.cartTitle{
+	margin: 20rpx 10rpx 0;
+	padding-left: 10rpx;
+	padding-bottom: 20rpx;
+	font-size: 50rpx;
+	color: black;
+	border-bottom: 1px solid black;
+}
+.cartItemListView{
+	width: 100%;
+	height: auto;
+	flex: 1;
+}
+.cartItemView{
+	margin: 10rpx 15rpx;
+	width: auto;
+	height: 160rpx;
+}
+.cartItemView image{
+	width: 160rpx;
+	height: 160rpx;
+}
+.cartItemNameText{
+	flex: auto;
+}
+.cartItemButton{
+	width: 160rpx;
+	background-color: white;
+	border: 1px solid rgb(121, 121, 121);
+	display: flex;
+	flex-direction: row;
+}
+.cartItemChangeBtn{
+	flex: 1;
+	font-size: 30rpx;
+	color: white;
+	background-color: rgb(63, 172, 30);
+}
+.cartItemCount{
+	flex: 2;
+	font-size: 30rpx;
+	color: black;
+	background-color: white;
+}

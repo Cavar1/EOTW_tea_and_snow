@@ -1,0 +1,195 @@
+/* pages/my_page/my_page.wxss */
+page {
+  display: flex;
+  flex-direction: column;
+}
+
+.myScrollView {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-top: 1px solid black;
+}
+
+/* 资料卡片 */
+.profileCard {
+  margin: 30rpx;
+  padding: 40rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	z-index: 1;
+  background-color: #faffdd;
+  border: 1px solid rgb(53, 53, 53);
+}
+
+/* 头像 */
+.avatarButton {
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.avatarButton::after {
+  border: none;
+}
+
+.avatarImg {
+  width: 240rpx;
+  height: 240rpx;
+  background-color: white;
+}
+
+.avatarTip {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #454545;
+}
+
+/* 昵称输入 */
+.fieldView {
+  margin-top: 40rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid rgb(121, 121, 121);
+  padding-bottom: 20rpx;
+}
+
+.fieldLabel {
+  width: 120rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #242424;
+}
+
+.nicknameInput {
+  flex: 1;
+  font-size: 34rpx;
+  color: #242424;
+}
+
+/* 会员等级 */
+.levelView {
+  margin-top: 40rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.levelBadge {
+  padding: 8rpx 20rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(55, 171, 23);
+  border: 1px solid black;
+}
+
+.levelName {
+  margin-left: 20rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #242424;
+}
+
+/* 信息列表 */
+.infoView {
+  margin-top: 40rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoLabel {
+  font-size: 26rpx;
+  color: #454545;
+}
+
+.infoValue {
+  margin-top: 10rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #242424;
+}
+
+/* 装饰文案 */
+.mottoView {
+  margin-top: 50rpx;
+  padding: 24rpx 30rpx;
+  background-color: rgb(248, 254, 126);
+  border: 1px solid black;
+}
+
+.mottoText {
+  font-size: 30rpx;
+  color: #242424;
+}
+
+/* 底部留白 */
+.myViewBack{
+  position: absolute;
+  bottom: 150rpx;
+  right: 0;
+	z-index: 0;
+	width: 400rpx;
+	height: 400rpx;
+	visibility: 100%;
+}
+
+/* 保存按钮栏 */
+.saveBar {
+  position: fixed;
+  left: 0;
+  bottom: 50rpx;
+  width: 100vw;
+  height: 120rpx;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  border-top: 1px solid black;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.saveButton {
+  width: 100% !important;
+  height: 80rpx;
+  margin: 0;
+  padding: 0;
+  font-size: 34rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 80rpx;
+  color: #999;
+  background-color: #e5e5e5;
+  border: 1px solid #999;
+  border-radius: 0;
+}
+
+.saveButton::after {
+  border: none;
+}
+
+.saveButtonActive {
+  color: white;
+  background-color: rgb(55, 171, 23);
+  border-color: black;
+}
